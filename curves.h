@@ -35,4 +35,13 @@ class Ellipse : public Curve {
   double a_, b_;
 };
 
+class Helix : public Curve {
+ public:
+  Helix(double a, double b, double c) : a_(a), b_(b), c_(c) {}
+  std::pair<double, double> Point(double value) override;
+  std::pair<double, double> Derivative(double value) override;
+ private:
+  double a_, b_, c_;
+};
+
 #endif  // CURVES_H
