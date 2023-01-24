@@ -37,3 +37,28 @@ std::pair<double, double> Helix::Derivative(double value) {
   double dz = c_ * sin(value);
   return std::make_pair(dx, dy);
 }
+
+std::vector<Circle*> getCircles(std::vector<Curve*>& curves) {
+  std::vector<Circle*> circles;
+  for (auto& curve : curves) {
+    Circle* circle = dynamic_cast<Circle*>(curve);
+    if (circle != nullptr) {
+      circles.push_back(circle);
+    }
+  }
+  return circles;
+}
+
+void sortCircles(std::vector<Circle*>& circles) {
+std::sort(circles.begin(), circles.end(), [](Circle* c1, Circle* c2) {
+  return c1->getRadius() < c2->getRadius();
+});
+}
+
+double sumRadii(std::vector<Circle*>& circles) {
+  double sum = 0;
+  for(auto circle : circles) {
+    sum += circle->getRadius();
+  }
+  return sum;
+}
