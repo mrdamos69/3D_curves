@@ -15,4 +15,15 @@ class Curve {
   virtual std::pair<double, double> Derivative(double value) = 0;
 };
 
+class Circle : public Curve {
+ public:
+  Circle(double radius) : radius_(radius) {}
+  std::pair<double, double> Point(double value) override;
+  std::pair<double, double> Derivative(double value) override;
+  double getRadius() { return radius_; }
+
+ private:
+  double radius_;
+};
+
 #endif  // CURVES_H
