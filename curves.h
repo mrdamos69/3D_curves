@@ -44,4 +44,8 @@ class Helix : public Curve {
   double a_, b_, c_;
 };
 
+std::vector<Circle*> getCircles(std::vector<Circle>& curves);
+void sortCircles(std::vector<Circle*>& circles);
+double sumRadii(std::vector<Circle*>& circles);
+
 #endif  // CURVES_H
