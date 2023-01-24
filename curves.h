@@ -26,4 +26,13 @@ class Circle : public Curve {
   double radius_;
 };
 
+class Ellipse : public Curve {
+ public:
+  Ellipse(double a, double b) : a_(a), b_(b) {}
+  std::pair<double, double> Point(double value) override;
+  std::pair<double, double> Derivative(double value) override;
+ private:
+  double a_, b_;
+};
+
 #endif  // CURVES_H
